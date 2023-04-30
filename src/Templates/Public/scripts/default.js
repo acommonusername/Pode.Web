@@ -215,7 +215,9 @@ function newFormData(inputs) {
         switch(input.type.toLowerCase()) {
             case 'file':
                 if (input.files.length > 0) {
-                    data.append(input.name, input.files[0], input.files[0].name);
+                    for (var index = 0; index < input.files.length; index++) {
+                        data.append(input.name, input.files[index], input.files[index].name);
+                    }
                 }
                 else {
                     data.append(input.name, '');
